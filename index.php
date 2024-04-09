@@ -1,3 +1,8 @@
+<?php
+    require_once 'includes/config_session.inc.php';
+    require_once 'includes/signup_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +15,15 @@
     <div class="main">
         <div class="header">SIGN UP SYSTEM</div>
         <form class="form" action = "includes/signup.inc.php" method = "post">
-            <label for = "username">Username</label>
-            <input type="text" name = "username" placeholder="Username">
-            <label for = "pwd">Password</label>
-            <input type="text" name = "pwd" placeholder="Password">
-            <label for = "email">Email</label>
-            <input type="text" name = "email" placeholder="Email">
+            <?php
+            signup_inputs();
+            ?>
             <button class="button">SIGN UP</button>
         </form>
+
+        <?php
+            check_signup_errors();
+        ?>
     </div>
 </body>
 </html>
