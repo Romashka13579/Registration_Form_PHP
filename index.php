@@ -13,7 +13,13 @@
 </head>
 <body>
     <div class="main">
-        <div class="header">SIGN UP SYSTEM</div>
+        <div class="header">LOG IN SYSTEM</div>
+        <form class="form" action = "includes/login.inc.php" method = "post">
+            <?php
+            login_inputs();
+            ?>
+            <button class="button">Log IN</button>
+        </form>
         <form class="form" action = "includes/signup.inc.php" method = "post">
             <?php
             signup_inputs();
