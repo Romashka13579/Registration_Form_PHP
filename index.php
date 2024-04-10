@@ -15,21 +15,6 @@
 <body>
     <div class="main">
         <div class = "main-part">
-            <div class="header">LOG IN SYSTEM</div>
-            <form class="form" action = "includes/login.inc.php" method = "post">
-                <label for = "username">Username</label>
-                <input type="text" name = "username" placeholder="Username">
-                <label for = "pwd">Password</label>
-                <input type="text" name = "pwd" placeholder="Password">
-                <button class="button">Log IN</button>
-            </form>
-        </div>
-
-        <?php
-            check_login_errors();
-        ?>
-
-        <div class = "main-part">
             <div class="header">SIGN UP SYSTEM</div>
             <form class="form" action = "includes/signup.inc.php" method = "post">
                 <?php
@@ -37,18 +22,36 @@
                 ?>
                 <button class="button">SIGN UP</button>
             </form>
+            <?php
+                check_signup_errors();
+            ?>
         </div>
 
-        <?php
-            check_signup_errors();
-        ?>
+        <?php if(!isset($_SESSION["user_id"])){?>
+            <div class = "main-part">
+                <div class="header">LOG IN SYSTEM</div>
+                <form class="form" action = "includes/login.inc.php" method = "post">
+                    <label for = "username">Username</label>
+                    <input type="text" name = "username" placeholder="Username">
+                    <label for = "pwd">Password</label>
+                    <input type="text" name = "pwd" placeholder="Password">
+                    <button class="button">Log IN</button>
+                </form>
+            </div>
 
-        <div class = "main-part">
-            <div class="header">LOGOUT</div>
-            <form class="form" action = "includes/logout.inc.php" method = "post">
-                <button class="button">Logout</button>
-            </form>
-        </div>
+            <?php
+                check_login_errors();
+            ?>
+        <?php }
+        else {
+            ?>
+            <div class = "main-part">
+                <div class="header">LOGOUT</div>
+                <form class="form" action = "includes/logout.inc.php" method = "post">
+                    <button class="button">Logout</button>
+                </form>
+            </div>
+        <?php }?>
         
     </div>
 </body>
