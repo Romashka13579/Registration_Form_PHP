@@ -2,17 +2,26 @@ body{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    overflow-x: hidden;
 }
 
 .main{
     background: rgb(240, 240, 240);
     display: flex;
     align-items: center;
-    gap: 20px;
-    flex-direction: column;
+    gap: 80px;
+    flex-direction: row;
     width: 100vw;
     height: 100vh;
     justify-content: center;
+}
+
+.main-part{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .header{

@@ -1,6 +1,7 @@
 <?php
     require_once 'includes/config_session.inc.php';
     require_once 'includes/signup_view.inc.php';
+    require_once 'includes/login_view.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,27 +10,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Sign UP</title>
+    <title>Sign UP/Log In</title>
 </head>
 <body>
     <div class="main">
-        <div class="header">LOG IN SYSTEM</div>
-        <form class="form" action = "includes/login.inc.php" method = "post">
-            <?php
-            login_inputs();
-            ?>
-            <button class="button">Log IN</button>
-        </form>
-        <form class="form" action = "includes/signup.inc.php" method = "post">
-            <?php
-            signup_inputs();
-            ?>
-            <button class="button">SIGN UP</button>
-        </form>
+        <div class = "main-part">
+            <div class="header">LOG IN SYSTEM</div>
+            <form class="form" action = "includes/login.inc.php" method = "post">
+                <label for = "username">Username</label>
+                <input type="text" name = "username" placeholder="Username">
+                <label for = "pwd">Password</label>
+                <input type="text" name = "pwd" placeholder="Password">
+                <button class="button">Log IN</button>
+            </form>
+        </div>
+
+        <?php
+            check_login_errors();
+        ?>
+
+        <div class = "main-part">
+            <div class="header">SIGN UP SYSTEM</div>
+            <form class="form" action = "includes/signup.inc.php" method = "post">
+                <?php
+                signup_inputs();
+                ?>
+                <button class="button">SIGN UP</button>
+            </form>
+        </div>
 
         <?php
             check_signup_errors();
         ?>
+
+        <div class = "main-part">
+            <div class="header">LOGOUT</div>
+            <form class="form" action = "includes/logout.inc.php" method = "post">
+                <button class="button">Logout</button>
+            </form>
+        </div>
+        
     </div>
 </body>
 </html>

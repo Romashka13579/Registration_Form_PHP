@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 function signup_inputs() {
-    echo '<label for = "pwd">Username</label>';
+    echo '<label for = "username">Username</label>';
     if(isset($_SESSION['signup_data']["username"]) && !isset($_SESSION['errors_signup']["username_taken"])){
         echo '<input type="text" name = "username" placeholder="Username" value="' . $_SESSION['signup_data']["username"] . '">';
     }

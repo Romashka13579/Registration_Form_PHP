@@ -40,6 +40,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         $sessionId = $newSessionId . "_" . $result["id"];
         session_id($sessionId);
 
+        $_SESSION['user_id'] = $result["id"];
+        $_SESSION['user_username'] = htmlspecialchars($result["username"]);
+
+        $_SESSION['last_regeneration'] = time();
+
+        header("Location: ../index.php?login=success");
+        $pdo = null;
+        $stmt = null;
+
+        die();
+
     } catch (PDOException $e) {
         die($e->getMessage());
     }
